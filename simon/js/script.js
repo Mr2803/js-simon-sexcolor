@@ -1,10 +1,12 @@
 /* Un alert espone 5 numeri casuali.Da li parte un timer di 30s.
 Dopo 30 secondi l utente deve inserire un prompt alla volta i numeri che ha visto precedent.Dopo che sono stati inseriti i 5 numeri , il software dice quanti e quali dei numeri da indovinare sono stati individuati */
 //@ts-check
+var gruppoNumDaRicordare = [];
 var gruppoNumeriGiocatore = [];
-var punteggio = 0;
 var numeriIndovinati = [];
-
+var numRand;
+var punteggio = 0;
+var avviso;
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -12,9 +14,8 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min; // il max è escluso il min è incluso
 }
 
-var gruppoNumDaRicordare = [];
 console.log("questi sono i numeri da ricordare" + gruppoNumDaRicordare)
-var numRand;
+
 
 while (gruppoNumDaRicordare.length < 5) {
     numRand = getRandomInt(1, 101);
@@ -25,7 +26,7 @@ while (gruppoNumDaRicordare.length < 5) {
 }
 console.log(gruppoNumDaRicordare)
 alert("Guarda questi numeri e ricordali , quando sei pronto premi ok e aspetta 30 secondi " + gruppoNumDaRicordare)
-var avviso;
+
 setTimeout(giocoMemoria, 3000)
 
 function giocoMemoria() {
@@ -41,6 +42,6 @@ function giocoMemoria() {
         }
     }
     console.log("questi sono i numeri del giocatore " + gruppoNumeriGiocatore)
-    console.log("questo è il punteggio che hai totalizzato :" + punteggio)
+    console.log("questo è il punteggio che hai totalizzato :" + punteggio + " su " + gruppoNumDaRicordare.length)
     console.log("questi sono i numeri che hai indovinato : " + numeriIndovinati)
 }
