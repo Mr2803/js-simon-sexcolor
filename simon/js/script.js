@@ -31,15 +31,23 @@ setTimeout(giocoMemoria, 3000)
 
 function giocoMemoria() {
     avviso = alert("inserisci i numeri che hai visto prima , se li ricordi");
-    for (var i = 0; i < gruppoNumDaRicordare.length; i++) {
+
+    while (gruppoNumeriGiocatore.length <  gruppoNumDaRicordare.length) {
         var insertNum = parseInt(prompt("inserisci un numero"));
+        if(gruppoNumeriGiocatore.includes(insertNum) == true){
 
-        gruppoNumeriGiocatore.push(insertNum);
+            alert("Ok...Questo lo ricordi , però inserisci anche gli altri");
 
-        if (gruppoNumDaRicordare.includes(insertNum) == true) {
-            punteggio++;
-            numeriIndovinati.push(insertNum);
+        }else{
+                gruppoNumeriGiocatore.push(insertNum);
+
+            if (gruppoNumDaRicordare.includes(insertNum) == true){
+                punteggio++;
+                numeriIndovinati.push(insertNum);
+            }
         }
+
+
     }
     console.log("questi sono i numeri del giocatore " + gruppoNumeriGiocatore)
     console.log("questo è il punteggio che hai totalizzato :" + punteggio + " su " + gruppoNumDaRicordare.length)
