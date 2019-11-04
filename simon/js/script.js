@@ -1,6 +1,10 @@
 /* Un alert espone 5 numeri casuali.Da li parte un timer di 30s.
 Dopo 30 secondi l utente deve inserire un prompt alla volta i numeri che ha visto precedent.Dopo che sono stati inseriti i 5 numeri , il software dice quanti e quali dei numeri da indovinare sono stati individuati */
 //@ts-check
+var gruppoNumeriGiocatore = [];
+var punteggio = 0;
+var numeriIndovinati = [];
+
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -21,26 +25,22 @@ while (gruppoNumDaRicordare.length < 5) {
 }
 console.log(gruppoNumDaRicordare)
 alert("Guarda questi numeri e ricordali , quando sei pronto premi ok e aspetta 30 secondi " + gruppoNumDaRicordare)
+var avviso;
+setTimeout(promemoria, 3000)
 
-var avviso = alert("inserisci i numeri che hai visto prima , se li ricordi");
-setTimeout("insertNum", 3000)
+function promemoria() {
+    avviso = alert("inserisci i numeri che hai visto prima , se li ricordi");
+    for (var i = 0; i < gruppoNumDaRicordare.length; i++) {
+        var insertNum = parseInt(prompt("inserisci un numero"));
 
-var gruppoNumeriGiocatore = [];
-var punteggio = 0;
-var numeriIndovinati = [];
+        gruppoNumeriGiocatore.push(insertNum);
 
-//Fatto con il for con il while avrei semplicemente messo la condizione i<gruppoNumDaRicordare.length 
-for (var i = 0; i < gruppoNumDaRicordare.length; i++) {
-    var insertNum = parseInt(prompt("inserisci un numero"));
-
-    gruppoNumeriGiocatore.push(insertNum);
-
-    if (gruppoNumDaRicordare.includes(insertNum) == true) {
-        punteggio++;
-        numeriIndovinati.push(insertNum);
+        if (gruppoNumDaRicordare.includes(insertNum) == true) {
+            punteggio++;
+            numeriIndovinati.push(insertNum);
+        }
     }
+    console.log("questi sono i numeri del giocatore " + gruppoNumeriGiocatore)
+    console.log("questo è il punteggio che hai totalizzato :" + punteggio)
+    console.log("questi sono i numeri che hai indovinato : " + numeriIndovinati)
 }
-
-console.log("questi sono i numeri del giocatore " + gruppoNumeriGiocatore)
-console.log("questo è il punteggio che hai totalizzato :" + punteggio)
-console.log("questi sono i numeri che hai indovinato : " + numeriIndovinati)
