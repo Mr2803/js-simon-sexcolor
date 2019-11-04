@@ -6,27 +6,49 @@ var nome;
 var sesso;
 var el;
 var elementi = [];
-
+var valoreValido = false;
+var valoreValido2 = false;
 
 el = document.getElementById("saluto");
 
-while(elementi.length < 2){
-    nome = prompt("Inserisci il tuo nome");
-    sesso = prompt("Inserisci il tuo sesso");
-    if (sesso == "uomo" || sesso == "m" || sesso == "M" || sesso == "donna" || sesso == "f" || sesso == "F"){
-        elementi.push(nome);
-        elementi.push(sesso);
-        if (sesso == "uomo" || sesso == "m" || sesso == "M") {
-            el.style.color = "blue"
-            el.innerHTML = "Ciao " + nome;
-        } else if (sesso == "donna" || sesso == "f" || sesso == "F") {
-            el.style.color = "pink"
-            el.innerHTML = "Ciao " + nome;
-            }
-        } else {
-            alert("inserisci un valore valido per il sesso");
-        }
 
+
+function chiediNome(name){
+    valoreValido;
+    while(valoreValido == false){
+        name = prompt("Inserisci il tuo nome");
+        if(!isNaN(name)){
+            alert("Inserisci un valore corretto")
+        }else{
+            valoreValido = true;
+            elementi.push(name);
+        }
+    }
+}
+
+function chiediSesso(sex,name){
+    valoreValido2;
+    while(valoreValido2 == false){
+        sex = prompt("Inserisci il tuo sesso");
+        if (sex == "uomo" || sex == "m" || sex == "M" || sex == "donna" || sex == "f" || sex == "F"){
+            elementi.push(sex);
+            valoreValido2 = true;
+            if (sex == "uomo" || sex == "m" || sex == "M") {
+                el.style.color = "blue";
+                el.innerHTML = "Ciao " + name;
+            } else {
+                el.style.color = "pink";
+                el.innerHTML = "Ciao " + name;
+            }
+        }else{
+            alert("inserisci un valore valido")
+        }
+    }
+}
+
+while (elementi.length < 2) {
+    chiediNome(nome);
+    chiediSesso(sesso,nome);
 }
 
 console.log(elementi)
