@@ -10,7 +10,7 @@ var elementi = [];
 
 el = document.getElementById("saluto");
 
-while (elementi.length < 2) {
+
     nome = prompt("Inserisci il tuo nome");
     sesso = prompt("Inserisci il tuo sesso");
     if (sesso == "uomo" || sesso == "m" || sesso == "M" || sesso == "donna" || sesso == "f" || sesso == "F") {
@@ -27,6 +27,6 @@ while (elementi.length < 2) {
         }
     } 
 
-}
+
 
 console.log(elementi)
