@@ -26,9 +26,9 @@ while (gruppoNumDaRicordare.length < 5) {
 console.log(gruppoNumDaRicordare)
 alert("Guarda questi numeri e ricordali , quando sei pronto premi ok e aspetta 30 secondi " + gruppoNumDaRicordare)
 var avviso;
-setTimeout(promemoria, 3000)
+setTimeout(giocoMemoria, 3000)
 
-function promemoria() {
+function giocoMemoria() {
     avviso = alert("inserisci i numeri che hai visto prima , se li ricordi");
     for (var i = 0; i < gruppoNumDaRicordare.length; i++) {
         var insertNum = parseInt(prompt("inserisci un numero"));
