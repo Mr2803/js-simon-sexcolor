@@ -27,6 +27,20 @@ while (gruppoNumDaRicordare.length < 5) {
 console.log(gruppoNumDaRicordare)
 alert("Guarda questi numeri e ricordali , quando sei pronto premi ok e aspetta 30 secondi " + gruppoNumDaRicordare)
 
+//Aggiungo un my interval per tracciare i secondi
+var secondi = 3;
+var myinterval = setInterval(countdown, 1000);
+function countdown() {
+    secondi = secondi - 1;
+
+    if (secondi == 0) {
+        
+        clearInterval(myinterval);
+    } else {
+        console.log(secondi);
+    }
+}
+
 setTimeout(giocoMemoria, 3000)
 
 function giocoMemoria() {

@@ -5,8 +5,6 @@ var sesso;
 var nome;
 var el;
 
-
-
 el = document.getElementById("saluto");
 
 
