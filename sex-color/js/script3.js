@@ -49,4 +49,4 @@ nome = chiediNome();
 console.log(nome)
 sesso = chiediSesso(); 
 console.log(sesso);
-el.innerHTML = "Ciao " + nome;
+el.innerHTML = "<span style=\"color:black\">" + "Ciao " + "</span>" + nome;
